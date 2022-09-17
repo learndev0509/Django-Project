@@ -1,0 +1,37 @@
+{% extends 'header.html' %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      
+   </head>
+   <!-- body -->
+   <body>
+      
+      <!-- about section -->
+      <div class="about">
+         <div class="container">
+            <div class="row d_flex">
+               <div class="col-md-5">
+                  <div class="titlepage">
+                     <h2>About Us</h2>
+                     <p>The CLA- India’s Largest Online Computer & Laptop Store.<br><br>The CLA is India’s best online store to purchase ultimate and distinctively Computer and Laptop and, stylish Accessories for assortment of occasions and displaying your relationship and special bond of togetherness.</p>
+                     <a class="read_more" href="{% url 'more_about' %}">Read More</a>
+                  </div>
+               </div>
+               <div class="col-md-7">
+                  <div class="about_img">
+                     <figure><img src="{% static 'images/about.jpg' %}" alt="#"/></figure>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      </div>
+      <!-- end about section -->
+     
+   </body>
+</html>
+{% endblock %}

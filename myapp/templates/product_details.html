@@ -1,0 +1,95 @@
+{% extends 'header.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+     
+   </head>
+   <!-- body -->
+   <body>
+      
+      <!-- products -->
+      <div  class="products">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="titlepage">
+                     <h2>{{product.product_category}} Details</h2>
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="our_products">
+                     <div class="row">
+                       
+                        <div class="col-md-6 margin_bottom1">
+                           <div class="product_box">
+                              
+                              <a href="#">
+                              <figure><img src="{{product.product_image.url}}" alt="#"/ style="height: 350px ;width: 350px;"></figure>
+                              <h3>{{product.product_category}}</h3>
+                              </a>
+                              <br><br>
+                              {% if request.session.email %}
+
+
+                                 {% if wishlist_flag == True %}
+                                    <a href="{% url 'remove_from_wishlist' pk=product.pk %}"><input type="button"  value="Remove From Wishlist" class="btn btn-danger"></a> 
+                                 {% else %}                                
+                                    <a href="{% url 'add_to_wishlist' pk=product.pk %}"><input type="button"  value="Add To Wishlist" class="btn btn-info"></a> 
+                                 {% endif %}
+
+                                 {% if cart_flag == True %}
+                                    &nbsp;&nbsp;&nbsp;
+                                    <a href="{% url 'remove_from_cart' pk=product.pk %}"><input type="button"  value="Remove From Cart" class="btn btn-danger"></a>
+                                 {% else %}
+                                    &nbsp;&nbsp;&nbsp;
+                                    <a href="{% url 'add_to_cart' pk=product.pk %}"><input type="button"  value="Add To Cart" class="btn btn-success"></a>
+                                 {% endif %}
+                                    
+                              {% else %}
+
+                              <div class="container">
+                                 <div class="row">
+                                    <div class="col-md-12">
+                                        <b><h1 style="color:red;">Please Login To Countinue Shopping!  
+                                          <a href="{% url 'login' %}"> <input type="button" value="Login" class="btn btn-dark " ></a></h1></b>
+                                    </div>
+                                 </div>
+                              </div> 
+                              {% endif %}
+                              <br><br>
+                              <h3>Reviews</h3><br>
+                              {% for i in reviews %} 
+                                 <br>
+                                 <input type="button" value="{{i.user.fname}}:" class="btn btn-outline-dark btn-lg" >                             
+                                 <br>
+                                 <h2>{{i.reviews}}</h2>
+                              {% endfor %}
+                           </div>
+                        </div>                       
+                        <div class="col-md-6 margin_bottom1">
+                           <div class="product_box">
+                             
+                             <h3>Category : {{product.product_category}}</h3>
+                              <h3>Name : {{product.product_name}}</h3>
+                              <h3>Price : {{product.product_price}} ₹</h3>
+                              <h3>Details : {{product.product_desc}}</h3>
+                              <h3>Discount : {{product.product_discount}}</h3>
+                              </a>
+                           </div>
+                        </div>
+                           
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- end products -->
+      
+   </body>
+</html>
+{% endblock %}

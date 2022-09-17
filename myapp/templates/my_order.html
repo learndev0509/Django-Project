@@ -1,0 +1,75 @@
+{% extends 'header.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+     
+   </head>
+   <!-- body -->
+   <body>
+      
+      <!-- products -->
+      <div  class="products">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="titlepage">
+                     {% if cart %}
+                        <h2>My Orders</h2>
+                     {% else %}
+                        <h2>No Oreders Yet!</h2>
+                     {% endif %}
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+
+               <div class="col-md-12">
+                  <div class="our_products">
+                        {% if msg %}
+                           <center>
+                           <font size="6">
+                           <b style="color: white;">{{msg}}</b>
+                           </font>
+                           </center>
+                        {% endif %}
+                     <div class="row">
+                        {% for i in cart %}
+                        <div class="col-md-4 margin_bottom1">
+                           <div class="product_box">
+                              <a href="{% url 'product_details' pk=i.product.pk %}">
+                              <figure><img src="{{i.product.product_image.url}}" alt="#"/ style="height: 210px ;width: 210px;"></figure>
+                              <h3>{{i.product.product_category}}</h3>
+                              </a>
+                              <br>
+                              
+                              <h1>Product Qty : {{i.product_qty}}</h1>
+                              
+                              <h1>Product Price : {{i.product.product_price}}₹</h1>
+                              <h1>Total Price : {{i.total_price}}₹</h1>
+                              <h1>Shipping Address : {{user.address}}</h1>
+                              <h1>Write a Review:</h1>
+                              <form method="post" action="{% url 'reviews' pk=i.product.pk %}">
+                                 <textarea class="textarea" name="reviews"></textarea>
+                              
+                                 {% csrf_token %}
+                              <center> <button class="sub_btn" >Submit</button></center></a></form>
+                                 
+                           </div>
+                        </div>
+
+                        {% endfor %}                      
+                        
+                     </div>
+                     
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- end products -->
+      
+   </body>
+</html>
+{% endblock %}

@@ -1,0 +1,76 @@
+{% extends 'seller_header.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      
+   </head>
+   <!-- body -->
+   <body>
+      <br><br><br>
+      <!--  contact -->
+      <div class="contact">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="titlepage">
+                     <h2>Add Product</h2>
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-md-10 offset-md-1">
+                  {% if msg %}
+                     <center>
+                     <font size="6">
+                     <b style="color: white;">{{msg}}</b>
+                     </font>
+                     </center>
+                  {% endif %}
+                  <form id="request" class="main_form" method="post" action="{% url 'seller_add_product' %}" enctype="multipart/form-data">
+                     {% csrf_token %}
+                     <div class="row">
+                        <div class="col-md-12 " style="color:white; font-size: 23px;" >
+                           <select name="product_category">
+                              <option style="background-color: white;">---Select Product Category---</option>
+                              <option style="background-color: white;" value="Computer">Computer</option>
+                              <option style="background-color: white;" value="Laptop">Laptop</option>
+                              <option style="background-color: white;" value="Accessories">Accessories</option>
+                           </select>
+                        </div>
+                        <br><br><br>
+                        <div class="col-md-12 ">
+                           <input class="contactus" placeholder="Product Name" type="type" name="product_name" required> 
+                        </div>
+
+                        <div class="col-md-12 ">
+                           <input class="contactus" placeholder="Product Price" type="text" name="product_price" required> 
+                        </div>
+
+                        <div class="col-md-12 ">
+                           <input class="contactus" placeholder="Product Discount" type="text" name="product_discount" > 
+                        </div>
+                       
+                        <div class="col-md-12">
+                           <textarea class="textarea" placeholder="Product Description" type="type" Message="Name" name="product_desc" required></textarea>
+                        </div>
+                        
+                        
+                        <div class="col-md-12">
+                           <input class="contactus" type="file" name="product_image" required>                          
+                        </div>
+                        <div class="col-md-12">
+                           <button class="send_btn">Add Product</button>
+                        </div>
+                     </div>
+                  </form>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- end contact -->
+      
+   </body>
+</html>
+{% endblock %}

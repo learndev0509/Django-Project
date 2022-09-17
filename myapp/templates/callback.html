@@ -1,0 +1,66 @@
+{% extends 'header.html' %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<head>
+    <title>Callback</title>
+</head>
+<body>
+    <div class="customer">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="titlepage">
+                     <h2>Callback Messsage</h2>
+                  </div>
+               </div>
+            </div>
+        </div>
+    </div>
+            <div class="row">
+               <div class="col-md-11">
+                  <div id="myCarousel" class="carousel slide customer_Carousel " data-ride="carousel">
+            </div>       
+                     <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="container">
+                              <div class="carousel-caption ">
+                                 <div class="row">
+                                    <div class="col-md-9 offset-md-3">
+                                       <div class="test_box">
+                                         
+                                                                        
+                                            <h1> <b>Checksum Verification: {{ message }}</b></h1>  
+                                            <h3> MID: {{ MID }}                                  <br>
+                                            TXNID: {{ TXNID }}                              <br>
+                                            ORDERID: {{ ORDERID }}                          <br>
+                                            BANKTXNID: {{ BANKTXNID }}                      <br>
+                                            TXNAMOUNT: {{ TXNAMOUNT }}                      <br>
+                                            CURRENCY: {{ CURRENCY }}                        <br>
+                                            <h1><b>STATUS: {{ STATUS }}</b></h1>                
+                                            <h3> RESPCODE: {{ RESPCODE }}                   <br>
+                                            RESPMSG: {{ RESPMSG }}                          <br>
+                                            TXNDATE: {{ TXNDATE }}                          <br>
+                                            GATEWAYNAME: {{ GATEWAYNAME }}                  <br>
+                                            BANKNAME: {{ BANKNAME }}                        <br>
+                                            BIN_NAME: {{ BIN_NAME }}                        <br>
+                                            PAYMENTMODE: {{ PAYMENTMODE }}                  <br>
+                                            CHECKSUMHASH: {{ CHECKSUMHASH }}  </h3>         <br>
+                                            <br>
+                                            <form action="{% url 'index' %}">
+                                                {% csrf_token %}
+                                            <input type="submit" value="Back To Home" class="btn btn-dark"></form><br><br>
+                                        
+                                        </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'header.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+     
+   </head>
+   <!-- body -->
+   <body>
+     
+      <!-- laptop  section -->
+      <div class="laptop">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-6">
+                  <div class="titlepage">
+                     <p>On Every Computers </p>
+                     <h2>Up to 20% off !</h2>
+                     <a class="read_more" href="{% url 'product_filter' pc='Computer' %}">Shop Now</a>
+                  </div>
+               </div>
+               <div class="col-md-6">
+                  <div class="laptop_box">
+                     <figure><img src="{% static 'images/pc.png' %}" alt="#"/></figure>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      </div>
+      <!-- end laptop  section -->
+      
+   </body>
+</html>
+{% endblock %}

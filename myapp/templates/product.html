@@ -1,0 +1,78 @@
+{% extends 'header.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+     
+   </head>
+   <!-- body -->
+   <body>
+      <div class="laptop">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-6">
+                  <div class="titlepage">
+                     <p>On Every Computers </p>
+                     <h2>Up to 20% off !</h2>
+                     <a class="read_more" href="{% url 'product_filter' pc='Computer' %}">Shop Now</a>
+                  </div>
+               </div>
+               <div class="col-md-6">
+                  <div class="laptop_box">
+                     <figure><img src="{% static 'images/pc.png' %}" alt="#"/></figure>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      </div>
+      
+         <br><br><br>
+                  <div class="titlepage">
+                     <h2>All Products</h2>
+                  </div> 
+      
+   <!-- three_box -->                      
+      <div class="three_box">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-4">
+                  <div class="box_text">
+                     <a href="{% url 'product_filter' pc='Computer' %}">
+                        <i><img src="{% static 'images/thr.png' %}" alt="#"/></i>
+                        <h3>Computer</h3>
+                        
+                     </a>
+                  </div>
+               </div>
+               <div class="col-md-4">
+                  <div class="box_text">
+                     <a href="{% url 'product_filter' pc='Laptop' %}">
+                        <i><img src="{% static 'images/thr1.png' %}" alt="#"/></i>
+                        <h3>Laptop</h3>
+                        
+                     </a>
+                  </div>
+               </div>
+               <div class="col-md-4">
+                  <div class="box_text">
+                     <a href="{% url 'product_filter' pc='Accessories' %}">
+                        <i><img src="{% static 'images/thr2.png' %}" alt="#"/></i>
+                        <h3>Accessories</h3>
+                       
+                     </a>
+                  </div>
+                  
+               </div>
+            </div>
+         </div>
+      </div>
+      <br><br><br><br>
+      <!-- three_box -->
+      
+      <br><br><br>
+
+   </body>
+</html>
+{% endblock %}

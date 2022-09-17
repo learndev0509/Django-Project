@@ -1,0 +1,57 @@
+{% extends 'seller_header.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+     
+   </head>
+   <!-- body -->
+   <body>
+      
+      <!-- products -->
+      <div  class="products">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="titlepage">
+                     <h2>My Products</h2>
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+
+               <div class="col-md-12">
+                  <div class="our_products">
+                        {% if msg %}
+                           <center>
+                           <font size="6">
+                           <b style="color: white;">{{msg}}</b>
+                           </font>
+                           </center>
+                        {% endif %}
+                     <div class="row">
+                        {% for i in products %}
+                        <div class="col-md-4 margin_bottom1">
+                           <div class="product_box">
+                              <a href="{% url 'seller_product_details' pk=i.pk %}">
+                              <figure><img src="{{i.product_image.url}}" alt="#"/ style="height: 210px ;width: 210px;"></figure>
+                              <h3>{{i.product_category}}</h3>
+                              </a>
+                           </div>
+                        </div>
+                        {% endfor %}                      
+                        <div class="col-md-12">
+                           <a class="read_more" href="#">See More</a>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- end products -->
+      
+   </body>
+</html>
+{% endblock %}
